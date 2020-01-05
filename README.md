@@ -1,4 +1,4 @@
-# time-manager
+# Chronalyzer
 
 > record and analyze your time.
 

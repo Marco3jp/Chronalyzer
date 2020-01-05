@@ -61,7 +61,7 @@
                     }
                 ],
                 miniVariant: false,
-                title: 'time-manager'
+                title: 'Chronalyzer'
             }
         }
     }
