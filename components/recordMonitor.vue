@@ -1,13 +1,13 @@
 <template>
-  <div :style=style>
+  <div :style="{'height': height, 'width': width}">
     <h2>前回の記録</h2>
-    <div v-if="typeof latestRecord !== 'undefined'" class="d-flex">
+    <div v-if="typeof latestRecord !== 'undefined'">
       <div>
-        <tasks-pie-chart height="300" width="300" :tasks="latestRecord.tasks"></tasks-pie-chart>
-        <span>{{this.latestRecordDate}}</span>
+        <tasks-pie-chart :tasks="latestRecord.tasks"></tasks-pie-chart>
+        <span>記録時間: {{this.latestRecordDate}}</span>
       </div>
 
-      <div class="d-flex flex-column">
+      <div>
         <div class="flex-grow-1">
           <p>{{this.latestRecord.meta.note}}</p>
         </div>
@@ -39,10 +39,6 @@
         latestRecord?: TasksRecord,
         timerId?: number,
         recordMonitorTimer?: number,
-        style: {
-            height?: string,
-            width?: string,
-        }
     }
 
     export default Vue.extend({
@@ -54,10 +50,6 @@
                 latestRecord: undefined,
                 timerId: undefined,
                 recordMonitorTimer: undefined, // second
-                style: {
-                    height: this.height,
-                    width: this.width,
-                }
             }
         },
         computed: {
