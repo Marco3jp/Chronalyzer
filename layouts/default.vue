@@ -22,7 +22,7 @@
     </v-app-bar>
 
     <v-content>
-      <v-container :style="{height: '100%'}" class="pa-4">
+      <v-container :style="{height: '100%'}" class="pa-4" ref="container" v-resize="handleResize">
         <nuxt/>
       </v-container>
     </v-content>
@@ -62,6 +62,26 @@
                 ],
                 miniVariant: false,
                 title: 'Chronalyzer'
+            }
+        },
+        methods: {
+            handleResize() {
+                this.setWindowRatio();
+                this.checkIsPortrait();
+                this.saveBaseLength();
+            },
+            setWindowRatio() {
+                this.$store.commit('setWindowRatio', window.innerWidth / window.innerHeight)
+            },
+            checkIsPortrait() {
+                this.$store.commit('setIsPortrait', this.$store.state.windowRatio < 1);
+            },
+            saveBaseLength() {
+                if (this.$store.state.isPortrait) {
+                    this.$store.commit('setBaseLength', this.$refs.container.clientWidth);
+                } else {
+                    this.$store.commit('setBaseLength', this.$refs.container.clientHeight);
+                }
             }
         }
     }

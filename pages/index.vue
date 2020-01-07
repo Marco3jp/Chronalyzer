@@ -37,21 +37,13 @@
         components: {
             RecordMonitor,
         },
-        data() {
-            return {
-                style: {
-                    width: '', height: ''
-                },
-                isPortrait: false,
+        computed: {
+            isPortrait: function (): boolean {
+                return this.$store.state.isPortrait;
+            },
+            recordMonitorSize: function (): number {
+                return this.$store.state.baseLength;
             }
         },
-        mounted() {
-            this.checkIsPortrait();
-        },
-        methods: {
-            checkIsPortrait() {
-                this.isPortrait = (window.innerWidth / window.innerHeight) < 1;
-            }
-        }
     });
 </script>
