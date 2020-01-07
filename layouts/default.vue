@@ -22,7 +22,7 @@
     </v-app-bar>
 
     <v-content>
-      <v-container>
+      <v-container :style="{height: '100%'}" class="pa-4">
         <nuxt/>
       </v-container>
     </v-content>
