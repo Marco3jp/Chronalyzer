@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'height': height, 'width': width}">
+  <div>
     <h2>前回の記録</h2>
     <div v-if="typeof latestRecord !== 'undefined'">
       <div>
@@ -44,7 +44,6 @@
     export default Vue.extend({
         name: "recordMonitor",
         components: {TasksPieChart},
-        props: ['height', 'width'],
         data(): recordMonitorData {
             return {
                 latestRecord: undefined,
@@ -90,7 +89,7 @@
                 } else {
                     return undefined
                 }
-            }
+            },
         },
         mounted() {
             this.fetchLatestRecordMock();
