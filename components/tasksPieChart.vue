@@ -6,7 +6,7 @@
     import Vue from 'vue';
     import Chart from 'chart.js'
     import {Task} from "~/model/task";
-    import colors from 'vuetify/lib/util/colors'
+    import colors from 'vuetify/es5/util/colors'
 
     export default Vue.extend({
         name: "tasksPieChart",
