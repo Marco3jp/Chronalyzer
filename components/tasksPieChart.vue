@@ -6,6 +6,7 @@
     import Vue from 'vue';
     import Chart from 'chart.js'
     import {Task} from "~/model/task";
+    import colors from 'vuetify/lib/util/colors'
 
     export default Vue.extend({
         name: "tasksPieChart",
@@ -52,7 +53,14 @@
                 let ctx = this.$refs.tasksChart.getContext('2d');
                 new Chart(ctx, {
                     type: "pie",
-                    data: this.chartData
+                    data: this.chartData,
+                    options: {
+                        legend: {
+                            labels: {
+                                fontColor: colors.grey.lighten3
+                            }
+                        }
+                    }
                 });
 
             }
