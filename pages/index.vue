@@ -1,17 +1,57 @@
 <template>
-  <v-layout>
-    <v-card class="pa-8">
-      <record-monitor></record-monitor>
+  <v-layout v-resize="checkIsPortrait" :class="{'flex-row': !isPortrait, 'flex-column': isPortrait}"
+            :style="{height: '100%'}">
+
+    <v-card class="pa-4">
+      <record-monitor :width="style.width" :height="style.height"></record-monitor>
     </v-card>
+
+    <div class="d-flex"
+         :class="{
+         'flex-row': isPortrait,
+         'flex-column': !isPortrait,
+         'mt-4': isPortrait,
+         'ml-4': !isPortrait }">
+
+      <v-card class="pa-4 flex-grow-1">
+        <div>
+          <span>履歴</span>
+        </div>
+      </v-card>
+
+      <v-card class="pa-4 flex-grow-1" :class="{'ml-4': isPortrait,'mt-4': !isPortrait}">
+        <div>
+          <span>分析</span>
+        </div>
+      </v-card>
+
+    </div>
   </v-layout>
 </template>
 
 <script lang="ts">
+    import Vue from 'vue';
     import RecordMonitor from "~/components/recordMonitor.vue";
 
-    export default {
+    export default Vue.extend({
         components: {
             RecordMonitor,
+        },
+        data() {
+            return {
+                style: {
+                    width: '', height: ''
+                },
+                isPortrait: false,
+            }
+        },
+        mounted() {
+            this.checkIsPortrait();
+        },
+        methods: {
+            checkIsPortrait() {
+                this.isPortrait = (window.innerWidth / window.innerHeight) < 1;
+            }
         }
-    }
+    });
 </script>
