@@ -1,13 +1,11 @@
 <template>
-  <v-layout v-resize="checkIsPortrait" :class="{'flex-row': !isPortrait, 'flex-column': isPortrait}"
-            :style="{height: '100%'}">
+  <v-layout :class="{'flex-row': !isPortrait, 'flex-column': isPortrait}" :style="{height: '100%'}">
 
-    <v-card class="pa-4">
-      <record-monitor :width="style.width" :height="style.height"></record-monitor>
+    <v-card class="pa-4" ref="recordMonitorWrapper">
+      <record-monitor></record-monitor>
     </v-card>
 
-    <div class="d-flex"
-         :class="{
+    <div class="d-flex" :class="{
          'flex-row': isPortrait,
          'flex-column': !isPortrait,
          'mt-4': isPortrait,
