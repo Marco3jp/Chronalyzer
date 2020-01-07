@@ -1,5 +1,5 @@
 <template>
-  <canvas :width="style.width" :height="style.height" ref="tasksChart"></canvas>
+  <canvas :width="width" :height="height" ref="tasksChart"></canvas>
 </template>
 
 <script lang="ts">
@@ -11,14 +11,6 @@
     export default Vue.extend({
         name: "tasksPieChart",
         props: ['height', 'width', 'tasks'],
-        data() {
-            return {
-                style: {
-                    height: this.height,
-                    width: this.width,
-                }
-            }
-        },
         watch: {
             'this.chartData': function (val) {
                 if (typeof val !== "undefined") {
