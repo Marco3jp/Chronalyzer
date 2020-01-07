@@ -48,6 +48,7 @@
                     data: this.chartData,
                     options: {
                         legend: {
+                            position: 'bottom',
                             labels: {
                                 fontColor: colors.grey.lighten3
                             }
