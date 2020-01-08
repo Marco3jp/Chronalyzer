@@ -11,13 +11,13 @@
          'mt-4': isPortrait,
          'ml-4': !isPortrait }">
 
-      <v-card class="pa-4 flex-grow-1">
+      <v-card class="pa-4 flex-grow-1" to="/recordList">
         <div>
           <span>履歴</span>
         </div>
       </v-card>
 
-      <v-card class="pa-4 flex-grow-1" :class="{'ml-4': isPortrait,'mt-4': !isPortrait}">
+      <v-card class="pa-4 flex-grow-1" :class="{'ml-4': isPortrait,'mt-4': !isPortrait}" to="/analyze">
         <div>
           <span>分析</span>
         </div>
