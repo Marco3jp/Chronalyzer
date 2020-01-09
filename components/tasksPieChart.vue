@@ -40,8 +40,8 @@
                     let values: Array<number> = [];
 
                     this.tasks.forEach((task: Task) => {
-                        labels.push(task.taskName);
-                        values.push(task.taskRatio);
+                        labels.push(task.name);
+                        values.push(task.ratio);
                     });
 
                     return {

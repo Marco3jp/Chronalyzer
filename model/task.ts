@@ -1,4 +1,4 @@
 export interface Task {
-  taskName: string
-  taskRatio: number
+  name: string
+  ratio: number
 }
