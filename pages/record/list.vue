@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: "recordList"
+        name: "list"
     }
 </script>
 
