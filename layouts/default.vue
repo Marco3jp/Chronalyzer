@@ -52,12 +52,12 @@
                     {
                         icon: 'mdi-chart-bubble',
                         title: '記録一覧',
-                        to: '/recordList'
+                        to: '/record/list'
                     },
                     {
                         icon: 'mdi-chart-bubble',
-                        title: '記録詳細',
-                        to: '/recordDetail'
+                        title: '分析',
+                        to: '/analyze'
                     }
                 ],
                 miniVariant: false,

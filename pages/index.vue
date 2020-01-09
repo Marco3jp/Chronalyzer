@@ -11,7 +11,7 @@
          'mt-4': isPortrait,
          'ml-4': !isPortrait }">
 
-      <v-card class="pa-4 flex-grow-1" to="/recordList">
+      <v-card class="pa-4 flex-grow-1" to="/record/list">
         <div>
           <span>履歴</span>
         </div>
