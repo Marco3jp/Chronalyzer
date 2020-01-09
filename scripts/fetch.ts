@@ -13,17 +13,17 @@ export function fetchRecordsMock(): Array<TasksRecord> {
         timestamp: 1578157820 // 2020-01-05T02:10:20
       },
       tasks: <Array<Task>>[{
-        taskName: "コーディング",
-        taskRatio: 75
+        name: "コーディング",
+        ratio: 75
       }, {
-        taskName: "Twitter",
-        taskRatio: 10
+        name: "Twitter",
+        ratio: 10
       }, {
-        taskName: "ドキュメントチェック",
-        taskRatio: 10
+        name: "ドキュメントチェック",
+        ratio: 10
       }, {
-        taskName: "不明",
-        taskRatio: 5
+        name: "不明",
+        ratio: 5
       }]
     },
     {
@@ -34,11 +34,11 @@ export function fetchRecordsMock(): Array<TasksRecord> {
         timestamp: 1578152420 // 2020-01-05T00:40:20
       },
       tasks: <Array<Task>>[{
-        taskName: "グラブル",
-        taskRatio: 90
+        name: "グラブル",
+        ratio: 90
       }, {
-        taskName: "Twitter",
-        taskRatio: 10
+        name: "Twitter",
+        ratio: 10
       }]
     }
   ]
