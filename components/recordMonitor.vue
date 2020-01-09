@@ -30,13 +30,10 @@
 
 <script lang="ts">
     import Vue from 'vue';
-    import {RecordMeta} from "~/model/recordMeta";
     import {TasksRecord} from "~/model/tasksRecord";
-    import {Task} from "~/model/task";
     import TasksPieChart from "./tasksPieChart.vue";
 
     interface recordMonitorData {
-        latestRecord?: TasksRecord,
         timerId?: number,
         recordMonitorTimer?: number,
     }
@@ -46,12 +43,14 @@
         components: {TasksPieChart},
         data(): recordMonitorData {
             return {
-                latestRecord: undefined,
                 timerId: undefined,
                 recordMonitorTimer: undefined, // second
             }
         },
         computed: {
+            latestRecord: function (): TasksRecord | undefined {
+                return this.$store.getters["record/latestRecord"];
+            },
             latestRecordDate: function (): string {
                 if (typeof this.latestRecord !== "undefined" && typeof this.latestRecord.meta !== "undefined" && typeof this.latestRecord.meta.timestamp !== "undefined") {
                     return (new Date(this.latestRecord.meta.timestamp * 1000)).toLocaleString('ja-JP');
