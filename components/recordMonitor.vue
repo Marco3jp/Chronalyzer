@@ -92,37 +92,10 @@
             },
         },
         mounted() {
-            this.fetchLatestRecordMock();
             this.calculateCurrentRecordTimer();
             this.incrementRecordRange();
         },
         methods: {
-            /**
-             * テスト用のデータをとりあえず流し込むやつ
-             */
-            fetchLatestRecordMock() {
-                this.latestRecord = <TasksRecord>{
-                    meta: <RecordMeta>{
-                        note: "作業して寝る前に記録取った",
-                        recordId: "a8abb041-d43f-4f63-b91a-091d95673049",
-                        sectionTime: 5400, // 1hour 30min
-                        timestamp: 1578157820 // 2020-01-05T02:10:20
-                    },
-                    tasks: <Array<Task>>[{
-                        taskName: "コーディング",
-                        taskRatio: 75
-                    }, {
-                        taskName: "Twitter",
-                        taskRatio: 10
-                    }, {
-                        taskName: "ドキュメントチェック",
-                        taskRatio: 10
-                    }, {
-                        taskName: "不明",
-                        taskRatio: 5
-                    }]
-                }
-            },
             calculateCurrentRecordTimer() {
                 if (typeof this.latestRecord !== "undefined" &&
                     typeof this.latestRecord.meta !== "undefined" &&
