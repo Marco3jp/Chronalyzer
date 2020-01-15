@@ -30,16 +30,10 @@
 <script lang="ts">
     import Vue from 'vue';
     import RecordMonitor from "~/components/recordMonitor.vue";
-    import {fetchRecordsMock} from "~/scripts/fetch";
 
     export default Vue.extend({
         components: {
             RecordMonitor,
-        },
-        fetch({store}) {
-            if(store.state.record.list.length === 0){
-                store.commit("record/unshift", fetchRecordsMock());
-            }
         },
         computed: {
             isPortrait: function (): boolean {

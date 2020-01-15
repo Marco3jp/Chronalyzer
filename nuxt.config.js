@@ -70,5 +70,8 @@ export default {
     */
     extend(config, ctx) {
     }
+  },
+  router: {
+    middleware: 'fetchRecords'
   }
 }
