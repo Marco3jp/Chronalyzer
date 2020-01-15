@@ -1,8 +1,11 @@
 <template>
   <div>
-    <v-text-field v-model="task.name" :readonly="isUnknown === true" label="タスク名"></v-text-field>
-    <v-slider v-model="task.ratio" max="100" :readonly="isUnknown === true"
-              @change="handleChangedRatio" @start="startTransaction" @end="commitTransaction"></v-slider>
+    <v-text-field v-model="task.name" :disabled="isUnknown === true" label="タスク名"></v-text-field>
+    <div class="d-flex">
+      <span>{{task.ratio}}%</span>
+      <v-slider v-model="task.ratio" max="100" :disabled="isUnknown === true" ticks="always" tick-size="5" step="5"
+                @change="handleChangedRatio" @start="startTransaction" @end="commitTransaction"></v-slider>
+    </div>
   </div>
 </template>
 
