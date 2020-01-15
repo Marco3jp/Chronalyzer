@@ -2,6 +2,7 @@ export const state = () => ({
   baseLength: 1000,
   windowRatio: 1.0, // width / height
   isPortrait: false,
+  isInitialized: false
 });
 
 export const mutations = {
@@ -13,5 +14,8 @@ export const mutations = {
   },
   setWindowRatio(state, ratio) {
     state.windowRatio = ratio;
+  },
+  setInitialized(state) {
+    state.isInitialized = true;
   }
 };
