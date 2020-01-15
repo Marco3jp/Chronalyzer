@@ -38,7 +38,7 @@
                 },
                 unknownTask: {
                     ratio: 100,
-                    name: "不明"
+                    name: "不明(0%の場合は自動的に除去されます)"
                 },
                 decreaseTarget: 0,
                 errorMessage: "",
