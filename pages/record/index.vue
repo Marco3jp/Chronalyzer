@@ -18,7 +18,7 @@
     import TaskForm from "~/components/taskForm.vue";
     import {Task} from "~/model/task";
 
-    interface recordData {
+    interface recordPageData {
         record: TasksRecord
         unknownTask: Task,
         decreaseTarget: number,
@@ -28,7 +28,7 @@
     export default Vue.extend({
         name: "record",
         components: {TaskForm},
-        data(): recordData {
+        data(): recordPageData {
             return {
                 record: {
                     meta: {
