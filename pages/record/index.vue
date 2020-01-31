@@ -4,7 +4,9 @@
       <v-textarea label="メモなど" v-model="record.meta.note"></v-textarea>
       <task-form v-for="(task, index) in record.tasks" :task="task" :key="index" :index="index"
                  @decrease="decreaseTaskRatio" @increase="increaseTaskRatio"></task-form>
-      <v-btn outlined @click="pushNewTask" type="button">+</v-btn>
+      <v-btn outlined @click="pushNewTask" type="button">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
       <task-form :task="unknownTask" :isUnknown="true"></task-form>
       <v-btn outlined type="submit">記録を保存</v-btn>
       <p class="red--text text--lighten-1" v-show="errorMessage !== ''">{{errorMessage}}</p>
