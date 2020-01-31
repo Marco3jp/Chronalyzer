@@ -24,6 +24,11 @@
       </v-card>
 
     </div>
+
+    <v-btn class="ma-6" color="green darken-3" to="/record" dark fab bottom right fixed app large>
+      <v-icon>mdi-plus</v-icon>
+    </v-btn>
+
   </v-layout>
 </template>
 
