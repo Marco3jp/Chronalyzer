@@ -99,7 +99,19 @@
                 this.decreaseTarget = 0;
             },
             validateForm(): boolean {
-                return !(this.record.tasks.length === 0 || !this.validateRatio());
+                // 名前が空、割合が0のチェック
+                let isError = false;
+                this.record.tasks.forEach((task: Task) => {
+                    console.log(task);
+                    if (typeof task.name === "undefined" || task.name === "") {
+                        isError = true;
+                    } else if (task.ratio === 0) {
+                        isError = true;
+                    }
+                });
+
+                // 上記バリデーションにエラーがなく、かつ、そもそも要素がない、何らかの不具合で合計が100じゃないことのチェック
+                return !isError && !(this.record.tasks.length === 0 || !this.validateRatio());
             },
             validateRatio() {
                 let ratio = this.unknownTask.ratio;
