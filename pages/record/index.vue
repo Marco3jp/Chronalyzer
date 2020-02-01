@@ -133,7 +133,7 @@
             processPreCommit() {
                 this.record.meta.timestamp = Math.round(new Date().getTime() / 1000);
                 this.record.meta.recordId = uuidv4();
-                this.record.meta.sectionTime = this.record.meta.timestamp - this.$store.getters["record/latestRecord"];
+                this.record.meta.sectionTime = this.record.meta.timestamp - this.$store.getters["record/latestRecord"].meta.timestamp; // 初回だったとしてもページを開いたとき(0回目のような)timestampは押してあるので壊れないはず
             }
         },
     });
