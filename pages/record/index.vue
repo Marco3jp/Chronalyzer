@@ -20,6 +20,8 @@
     import TaskForm from "~/components/taskForm.vue";
     import {Task} from "~/model/task";
 
+    const uuidv4 = require('uuid/v4');
+
     interface recordPageData {
         record: TasksRecord
         unknownTask: Task,
@@ -82,9 +84,16 @@
             postRecord() {
                 if (this.validateForm()) {
                     if (this.unknownTask.ratio > 0) {
+                        this.unknownTask.name = "不明";
+                        this.unknownTask.category = {
+                            id: "e65e3fee-b27c-4987-8d3e-6ff2dbb7ad16",
+                            name: "不明"
+                        };
                         this.record.tasks.push(this.unknownTask);
                     }
+                    this.processPreCommit(); // TODO: バックエンド実装後に除去
                     this.$store.commit('record/unshift', JSON.parse(JSON.stringify(this.record)));
+                    localStorage.setItem("records", JSON.stringify(this.$store.state.record.list));
                     this.resetForm();
                 } else {
                     this.errorMessage = "フォームの内容に不備がある可能性があります";
@@ -119,6 +128,11 @@
                     ratio += task.ratio;
                 });
                 return ratio === 100;
+            },
+            processPreCommit() {
+                this.record.meta.timestamp = Math.round(new Date().getTime() / 1000);
+                this.record.meta.recordId = uuidv4();
+                this.record.meta.sectionTime = this.record.meta.timestamp - this.$store.getters["record/latestRecord"];
             }
         },
     });

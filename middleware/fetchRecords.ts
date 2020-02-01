@@ -1,9 +1,14 @@
 import {Middleware} from '@nuxt/types'
-import {fetchRecordsMock} from "~/scripts/fetch";
+import {getInitialRecord} from "~/scripts/initialRecord";
 
-const fetchRecords: Middleware = ({store}) => {
+const fetchRecords: Middleware = ({store, env}) => {
   if (!store.state.isInitialized) {
-    store.commit("record/unshift", fetchRecordsMock());
+    const records = localStorage.getItem("records");
+    if (records !== null) {
+      store.commit("record/unshift", JSON.parse(records));
+    } else {
+      store.commit("record/unshift", getInitialRecord());
+    }
     store.commit("setInitialized");
   }
 };
