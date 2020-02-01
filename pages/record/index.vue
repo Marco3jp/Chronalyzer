@@ -95,6 +95,7 @@
                     this.$store.commit('record/unshift', JSON.parse(JSON.stringify(this.record)));
                     localStorage.setItem("records", JSON.stringify(this.$store.state.record.list));
                     this.resetForm();
+                    this.$router.push("/");
                 } else {
                     this.errorMessage = "フォームの内容に不備がある可能性があります";
                     setTimeout(() => {
