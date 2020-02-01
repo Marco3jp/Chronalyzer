@@ -85,7 +85,6 @@
                         this.record.tasks.push(this.unknownTask);
                     }
                     this.$store.commit('record/unshift', JSON.parse(JSON.stringify(this.record)));
-                    console.log(this.$store.state.record.list);
                     this.resetForm();
                 } else {
                     this.errorMessage = "フォームの内容に不備がある可能性があります";
@@ -104,7 +103,6 @@
                 // 名前が空、割合が0のチェック
                 let isError = false;
                 this.record.tasks.forEach((task: Task) => {
-                    console.log(task);
                     if (typeof task.name === "undefined" || task.name === "") {
                         isError = true;
                     } else if (task.ratio === 0) {
